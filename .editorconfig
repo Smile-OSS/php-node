@@ -1,0 +1,23 @@
+# http://editorconfig.org
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.py]
+indent_size = 4
+
+[*.yaml]
+indent_size = 2
+
+[LICENSE.md]
+insert_final_newline = false
+
+[Makefile]
+indent_style = tab

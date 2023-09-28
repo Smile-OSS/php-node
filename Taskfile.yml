@@ -1,0 +1,32 @@
+# https://taskfile.dev
+
+version: "3"
+
+env:
+  REGISTRY: "ghcr.io/smile-oss"
+
+tasks:
+  build:
+    aliases:
+      - "default"
+    desc: Build docker image
+    summary: |
+      Build docker image
+
+      You should pass the following arguments:
+      - Version: Desired PHP version
+      - Node: Desired Node version
+      - Composer: Desired Composer version
+
+      Example:
+      ❯ task build Version=8.1 Node=18.18.0 Composer=2.5.8
+
+    dir: "{{.USER_WORKING_DIR}}/docker/{{.Version}}"
+    cmds:
+      - echo "Building php-nvm..."
+      - >
+        docker build . -t ${REGISTRY}/php-nvm:{{.Version}}
+        --build-arg NODE_VERSION={{.Node}}
+        --build-arg COMPOSER_VERSION={{.Composer}}
+      - echo "Done!"
+
