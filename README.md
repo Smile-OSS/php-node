@@ -11,4 +11,5 @@
 Please use `task --summary` to see all available tasks with their description.
 
 Current status:
+
 ![Curremt status](docs/assets/current.png)
