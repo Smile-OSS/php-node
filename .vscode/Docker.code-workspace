@@ -1,0 +1,45 @@
+{
+    "folders": [
+        {
+            "path": ".."
+        }
+    ],
+    "settings": {
+        "yaml.schemas": {
+            "https://taskfile.dev/schema.json": "/Taskfile.yml"
+        },
+        "explorer.sortOrder": "type",
+        "editor.rulers": [
+            72,
+            79
+        ],
+        "todohighlight.keywords": [
+            {
+                "text": "MARK:",
+                "color": "#ebcb8b",
+                "backgroundColor": "#4c566a",
+                "overviewRulerColor": "grey",
+                "isWholeLine": true,
+            },
+            {
+                "text": "NOTE:",
+                "color": "#5E81AC",
+                "backgroundColor": "#EBCB8B",
+                "overviewRulerColor": "#81A1C1",
+            },
+        ],
+    },
+    "extensions": {
+        "recommendations": [
+          // Code helpers
+          "task.vscode-task",
+          "shakram02.bash-beautify",
+          "EditorConfig.EditorConfig",
+          // Visual helpers
+          "eamodio.gitlens",
+          "mhutchie.git-graph",
+          "usernamehw.errorlens",
+          "wayou.vscode-todo-highlight",
+        ]
+      }
+}
