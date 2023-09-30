@@ -13,6 +13,9 @@
             72,
             79
         ],
+        "debug.console.fontSize": 14,
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
         "todohighlight.keywords": [
             {
                 "text": "MARK:",
