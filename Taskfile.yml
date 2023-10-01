@@ -15,15 +15,16 @@ tasks:
 
       You should pass the following arguments:
       - Version: Desired PHP version
+      - Tag: Git tag name
 
       Example:
-      ❯ task build Version=8.1
+      ❯ task build Version=8.1 Tag=v1.0.0
 
-    dir: "{{.USER_WORKING_DIR}}/docker/{{.Version}}"
+    dir: "{{.USER_WORKING_DIR}}/docker/{{.Version}}-{{.Tag}}"
     cmds:
       - >
-        docker build . -t ${REGISTRY}/php-node:{{.Version}}
-      - echo "Built ${REGISTRY}/php-node:{{.Version}}"
+        docker build . -t ${REGISTRY}/php-node:{{.Version}}-{{.Tag}}
+      - echo "Built ${REGISTRY}/php-node:{{.Version}}-{{.Tag}}"
 
   push:
     desc: Push docker image
@@ -32,12 +33,47 @@ tasks:
 
       You should pass the following arguments:
       - Version: Desired PHP version
+      - Tag: Git tag name
 
       Example:
       ❯ task push Version=8.1
 
-    dir: "{{.USER_WORKING_DIR}}/docker/{{.Version}}"
+    dir: "{{.USER_WORKING_DIR}}/docker/{{.Version}}-{{.Tag}}"
     cmds:
       - >
-        docker push ${REGISTRY}/php-node:{{.Version}}
-      - echo "Pushed ${REGISTRY}/php-node:{{.Version}}"
+        docker push ${REGISTRY}/php-node:{{.Version}}-{{.Tag}}
+      - echo "Pushed ${REGISTRY}/php-node:{{.Version}}-{{.Tag}}"
+
+  build-all:
+    desc: Build all docker images
+    summary: |
+      Build all docker images
+
+      It will iterate over all directories in `docker` directory and build docker images
+      based on the directory name as the PHP version.
+
+      Example:
+      ❯ task build-all Tag=v1.0.0
+
+    cmds:
+      - >
+        for dir in $(find ./docker -maxdepth 1 -type d -not -path '*/\.*' -not -path './docker'); do
+          task build Version=$(basename $dir) Tag={{.Tag}}
+        done
+
+  push-all:
+    desc: Push all docker images
+    summary: |
+      Push all docker images
+
+      It will iterate over all directories in `docker` directory and push docker images
+      based on the directory name as the PHP version.
+
+      Example:
+      ❯ task push-all Tag=v1.0.0
+
+    cmds:
+      - >
+        for dir in $(find ./docker -maxdepth 1 -type d -not -path '*/\.*' -not -path './docker'); do
+          task push Version=$(basename $dir) Tag={{.Tag}}
+        done
