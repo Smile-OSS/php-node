@@ -12,7 +12,7 @@
 
 ## Contents
 
-There are for tags for each PHP version:
+There are four tags for each PHP version:
 
 ### `$PHP_VERSION-nvm-$TAG`
 
