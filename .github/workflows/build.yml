@@ -1,9 +1,6 @@
 ﻿name: build-n-push
 
 on:
-  push:
-    branches:
-      - main
   release:
     types: [published]
   workflow_dispatch:
@@ -43,6 +40,6 @@ jobs:
       - name: Build and push Docker image
         run: |
           echo "Build the image"
-          task build Version=8.1-nvm
+          task build-all Tag="${{ github.ref_name }}"
           echo "Push the image"
-          task push Version=8.1-nvm
+          task push-all
