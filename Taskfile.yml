@@ -20,7 +20,7 @@ tasks:
       Example:
       ❯ task build Version=8.1 Tag=v1.0.0
 
-    dir: "{{.USER_WORKING_DIR}}/docker/{{.Version}}-{{.Tag}}"
+    dir: "{{.USER_WORKING_DIR}}/docker/{{.Version}}"
     cmds:
       - >
         docker build . -t ${REGISTRY}/php-node:{{.Version}}-{{.Tag}}
@@ -38,7 +38,7 @@ tasks:
       Example:
       ❯ task push Version=8.1
 
-    dir: "{{.USER_WORKING_DIR}}/docker/{{.Version}}-{{.Tag}}"
+    dir: "{{.USER_WORKING_DIR}}/docker/{{.Version}}"
     cmds:
       - >
         docker push ${REGISTRY}/php-node:{{.Version}}-{{.Tag}}
