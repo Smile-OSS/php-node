@@ -42,10 +42,13 @@ jobs:
         with:
           task-version: 3.29.1
 
-      - name: Build and push Docker image
+      - name: Build Docker image
         run: |
           ls -lha . && pwd
           echo "Build the image"
           task build-all Tag="${{ github.ref_name }}"
+
+      - name: Push Docker image
+        run: |
           echo "Push the image"
-          task push-all
+          task push-all Tag="${{ github.ref_name }}"
