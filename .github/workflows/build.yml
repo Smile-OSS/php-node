@@ -9,6 +9,11 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
+defaults:
+  run:
+    shell: bash
+    working-directory: ./
+
 jobs:
   build:
     name: Build and push Docker image
@@ -39,6 +44,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
+          ls -lha . && pwd
           echo "Build the image"
           task build-all Tag="${{ github.ref_name }}"
           echo "Push the image"
