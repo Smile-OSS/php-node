@@ -15,18 +15,29 @@ tasks:
 
       You should pass the following arguments:
       - Version: Desired PHP version
-      - Node: Desired Node version
-      - Composer: Desired Composer version
 
       Example:
-      ❯ task build Version=8.1 Node=18.18.0 Composer=2.5.8
+      ❯ task build Version=8.1
 
     dir: "{{.USER_WORKING_DIR}}/docker/{{.Version}}"
     cmds:
-      - echo "Building php-nvm..."
       - >
-        docker build . -t ${REGISTRY}/php-nvm:{{.Version}}
-        --build-arg NODE_VERSION={{.Node}}
-        --build-arg COMPOSER_VERSION={{.Composer}}
-      - echo "Done!"
+        docker build . -t ${REGISTRY}/php-node:{{.Version}}
+      - echo "Built ${REGISTRY}/php-node:{{.Version}}"
 
+  push:
+    desc: Push docker image
+    summary: |
+      Push docker image
+
+      You should pass the following arguments:
+      - Version: Desired PHP version
+
+      Example:
+      ❯ task push Version=8.1
+
+    dir: "{{.USER_WORKING_DIR}}/docker/{{.Version}}"
+    cmds:
+      - >
+        docker push ${REGISTRY}/php-node:{{.Version}}
+      - echo "Pushed ${REGISTRY}/php-node:{{.Version}}"
