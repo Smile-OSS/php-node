@@ -1,15 +1,97 @@
-# PHP with Node for Ci/Cd
+# PHP with Node and Composer for Ci/Cd
 
-## Oficial images
+- [PHP with Node and Composer for Ci/Cd](#php-with-node-and-composer-for-cicd)
+  - [Contents](#contents)
+    - [`$PHP_VERSION-nvm-$TAG`](#php_version-nvm-tag)
+    - [`$PHP_VERSION-14-$TAG`](#php_version-14-tag)
+    - [`$PHP_VERSION-16-$TAG`](#php_version-16-tag)
+    - [`$PHP_VERSION-18-$TAG`](#php_version-18-tag)
+  - [Size of images](#size-of-images)
+  - [Usage](#usage)
+  - [License](#license)
 
-- [PHP](https://github.com/docker-library/php)
-- [Composer](https://github.com/composer/docker)
-- [Node.js](https://github.com/nodejs/docker-node)
+## Contents
+
+There are for tags for each PHP version:
+
+### `$PHP_VERSION-nvm-$TAG`
+
+This PHP image is based on the official PHP Debian with next additions:
+
+- NVM with next LTS Node versions: `14`, `16`, `18`
+- Composer `latest` version
+
+### `$PHP_VERSION-14-$TAG`
+
+This PHP image is based on the official PHP Alpine 3.14 with next additions:
+
+- Node 14
+- Composer `2.2.22`
+
+### `$PHP_VERSION-16-$TAG`
+
+This PHP image is based on the official PHP Alpine 3.16 with next additions:
+
+- Node 16
+- Composer `2.5.8`
+
+### `$PHP_VERSION-18-$TAG`
+
+This PHP image is based on the official PHP Alpine 3.18 with next additions:
+
+- Node 18
+- Composer `latest`
+
+## Size of images
+
+```bash
+REPOSITORY                   TAG              IMAGE ID       CREATED             SIZE
+ghcr.io/smile-oss/php-node   8.1-14-v1.0.3    ff917b60f6fa   About an hour ago   170MB
+ghcr.io/smile-oss/php-node   8.1-18-v1.0.3    3376ab312e36   About an hour ago   176MB
+ghcr.io/smile-oss/php-node   8.1-16-v1.0.3    8f87df78ac6d   About an hour ago   175MB
+ghcr.io/smile-oss/php-node   8.1-nvm-v1.0.3   5ac0f9e25761   About an hour ago   1.03GB
+
+```
 
 ## Usage
 
-Please use `task --summary` to see all available tasks with their description.
+Please use `task --list-all` to see all available tasks with their description.
+
+```bash
+❯ task --list-all
+task: Available tasks for this project:
+* build:           Build docker image      (aliases: default)
+* build-all:       Build all docker images
+* push:            Push docker image
+* push-all:        Push all docker images
+
+```
+
+And `task --summary <task>` to see full description of the task.
+
+```bash
+❯ task --summary build-all
+task: build-all
+
+Build all docker images
+
+It will iterate over all directories in `docker` directory and build docker images
+based on the directory name as the PHP version.
+
+Example:
+❯ task build-all Tag=v1.0.0
+
+commands:
+ - for dir in $(find ./docker -maxdepth 1 -type d -not -path '*/\.*' -not -path './docker'); do
+  task build Version=$(basename $dir) Tag=
+done
+
+```
 
 Current status:
 
 ![Curremt status](docs/assets/current.png)
+
+## License
+
+[BSD 3-Clause License](LICENSE)
