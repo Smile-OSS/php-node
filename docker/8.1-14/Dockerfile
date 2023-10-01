@@ -25,7 +25,7 @@ RUN apk add --update --no-cache \
   freetype-dev \
   libjpeg-turbo-dev \
   && rm -rf /var/cache/apk/* \
-  && docker-php-ext-install pcntl posix mcrypt \
+  && docker-php-ext-install pcntl posix \
   && docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype \
   && docker-php-ext-install gd \
   # Install composer.
