@@ -1,8 +1,8 @@
 # PHP with Node and Composer for Ci/Cd
 
-[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Smile-OSS/php-node/build.yml?style=for-the-badge)](https://github.com/Smile-OSS/php-node/actions)
 [![GitHub release (with filter)](https://img.shields.io/github/v/release/Smile-OSS/php-node?style=for-the-badge)](https://github.com/Smile-OSS/php-node/pkgs/container/php-node)
 [![GitHub](https://img.shields.io/github/license/Smile-OSS/php-node?style=for-the-badge)](LICENSE)
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Smile-OSS/php-node/build.yml?style=for-the-badge)](https://github.com/Smile-OSS/php-node/actions)
 
 - [PHP with Node and Composer for Ci/Cd](#php-with-node-and-composer-for-cicd)
   - [Contents](#contents)
