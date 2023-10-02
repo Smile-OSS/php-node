@@ -3,6 +3,7 @@
 [![GitHub release (with filter)](https://img.shields.io/github/v/release/Smile-OSS/php-node?style=for-the-badge)](https://github.com/Smile-OSS/php-node/pkgs/container/php-node)
 [![GitHub](https://img.shields.io/github/license/Smile-OSS/php-node?style=for-the-badge)](LICENSE)
 [![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Smile-OSS/php-node/build.yml?style=for-the-badge)](https://github.com/Smile-OSS/php-node/actions)
+[![Sonar Violations (long format)](https://img.shields.io/sonar/violations/Smile-OSS_php-node/main?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge)](https://github.com/Smile-OSS/php-node/actions)
 
 - [PHP with Node and Composer for Ci/Cd](#php-with-node-and-composer-for-cicd)
   - [Contents](#contents)
