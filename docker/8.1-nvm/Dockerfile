@@ -7,10 +7,11 @@ WORKDIR /app
 # Install dependencies.
 RUN apt update && apt install -y \
   bash \
-  curl \
-  wget \
   git \
   zip \
+  curl \
+  wget \
+  rsync \
   unzip \
   openssl \
   libpng-dev \
@@ -38,4 +39,4 @@ RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh \
 
 FROM scratch AS scratch
 COPY --from=php / /
-
+ENV COMPOSER_ALLOW_SUPERUSER=1

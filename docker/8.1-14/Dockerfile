@@ -9,6 +9,7 @@ RUN apk add --update --no-cache \
   bash \
   git \
   curl \
+  rsync \
   openssh \
   openssl \
   ncurses \
@@ -34,3 +35,5 @@ RUN apk add --update --no-cache \
   # change default shell from ash to bash
   && sed -i -e "s/bin\/ash/bin\/bash/" /etc/passwd \
   && touch ~/.bashrc
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
