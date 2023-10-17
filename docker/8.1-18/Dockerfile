@@ -4,23 +4,6 @@ LABEL maintainer "Smile EE DevOps <ee.devops.team+github@smile.fr>"
 
 WORKDIR /app
 
-        'bash': 'bash',
-        'unzip': 'unzip',
-        'git': 'git',
-        'zip': 'zip',
-        'sqlite': 'sqlite-dev',
-        'mysql-client': 'mysql-client',
-        'mariadb-connector-c': 'mariadb-connector-c',
-        'png': 'libpng-dev',
-        'zlib': 'zlib-dev',
-        'webp/vpx': 'libvpx-dev',
-        'jpeg': 'libjpeg-turbo-dev',
-        'webp': 'libwebp-dev',
-        'xpm': 'libxpm-dev',
-        'freetype': 'freetype-dev',
-        'msmtp': 'msmtp',
-
-
 # Install dependencies.
 RUN apk add --update --no-cache \
   bash \
