@@ -1,4 +1,4 @@
-FROM php:8.1-cli-alpine3.18
+FROM php:8.2-cli-alpine3.18
 
 LABEL maintainer "Smile EE DevOps <ee.devops.team+github@smile.fr>"
 
